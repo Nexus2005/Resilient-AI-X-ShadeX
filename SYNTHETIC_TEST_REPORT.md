@@ -33,15 +33,19 @@ Because statutory regulatory systems cannot be reliably tested with static happy
 
 ```mermaid
 flowchart TD
-    Generator[Synthetic Test Harness] --> G1[PyMuPDF Generator<br/>Valid Multi-page PDFs]
-    Generator --> G2[Binary Payload Injector<br/>PE MZ Header Executables]
-    Generator --> G3[Zip Archive Crafter<br/>Directory Traversal ../escape]
-    Generator --> G4[Crypto Lock Engine<br/>AES-256 Encrypted PDFs]
-    Generator --> G5[Image Transformer<br/>Low-contrast Scans & Mismatches]
-    Generator --> G6[Time-Dilation Engine<br/>System Clock Offset Jumps]
+    Generator["Synthetic Test Harness"] --> G1["PyMuPDF Generator<br/>Valid Multi-page PDFs"]
+    Generator --> G2["Binary Payload Injector<br/>PE MZ Header Executables"]
+    Generator --> G3["Zip Archive Crafter<br/>Directory Traversal ../escape"]
+    Generator --> G4["Crypto Lock Engine<br/>AES-256 Encrypted PDFs"]
+    Generator --> G5["Image Transformer<br/>Low-contrast Scans & Mismatches"]
+    Generator --> G6["Time-Dilation Engine<br/>System Clock Offset Jumps"]
 
-    G1 & G2 & G3 & G4 & G5 --> Ingest[FastAPI Ingestion Gateway]
-    G6 --> Monitor[APScheduler & Escalation Engine]
+    G1 --> Ingest["FastAPI Ingestion Gateway"]
+    G2 --> Ingest
+    G3 --> Ingest
+    G4 --> Ingest
+    G5 --> Ingest
+    G6 --> Monitor["APScheduler & Escalation Engine"]
 ```
 
 ---

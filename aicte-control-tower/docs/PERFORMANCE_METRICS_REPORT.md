@@ -110,16 +110,22 @@ During each tick, seven distinct compliance routines execute sequentially within
 
 ```mermaid
 flowchart TD
-    A[Scheduler Tick Starts] --> B[Acquire PG Advisory Lock]
-    B --> C1[1. Stage Warning at 80% SLA Target]
-    B --> C2[2. Stage Overdue at 100% SLA Target]
-    B --> C3[3. Escalation Ladder Progression]
-    B --> C4[4. Undertakings Due in <= 30 Days]
-    B --> C5[5. Undertakings Overdue]
-    B --> C6[6. Document Lease Expiry Reminders]
-    B --> C7[7. Revert Resubmission Deadlines]
-    C1 & C2 & C3 & C4 & C5 & C6 & C7 --> D[Commit Notifications & Escalations]
-    D --> E[Release Advisory Lock]
+    A["Scheduler Tick Starts"] --> B["Acquire PG Advisory Lock"]
+    B --> C1["1. Stage Warning at 80% SLA Target"]
+    B --> C2["2. Stage Overdue at 100% SLA Target"]
+    B --> C3["3. Escalation Ladder Progression"]
+    B --> C4["4. Undertakings Due within 30 Days"]
+    B --> C5["5. Undertakings Overdue"]
+    B --> C6["6. Document Lease Expiry Reminders"]
+    B --> C7["7. Revert Resubmission Deadlines"]
+    C1 --> D["Commit Notifications & Escalations"]
+    C2 --> D
+    C3 --> D
+    C4 --> D
+    C5 --> D
+    C6 --> D
+    C7 --> D
+    D --> E["Release Advisory Lock"]
 ```
 
 #### Benchmark Execution Results (10 Consecutive Invocations)

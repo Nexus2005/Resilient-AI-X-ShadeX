@@ -28,18 +28,26 @@ The platform strictly enforces the human-in-the-loop principle:
 flowchart TD
     Client["Next.js 16 Role Portals<br/>(Institution · Regional · EVC · Bureau · Admin)"] --> Gateway["FastAPI REST & Security Gateway"]
 
-    subgraph Core Engines
-        Gateway --> IntakeEngine["1. Intake & Document Gateway<br/>(PyMuPDF · Magic Sniffing · pHash · RapidOCR)"]
-        Gateway --> WorkflowEngine["2. Rules & Workflow Engine<br/>(Dynamic Stage Routing · Structured Reverts)"]
-        Gateway --> DeadlineEngine["3. Dual-Clock SLA & Escalation Ladder<br/>(7-Check Advisory-Locked Monitor Tick)"]
-        Gateway --> EVCEngine["4. Expert Committee Engine<br/>(Conflict-of-Interest Filter: District & Tenure)"]
-        Gateway --> ObligationEngine["5. Obligations & Document Validity<br/>(Post-Approval Undertakings & Renewal Chains)"]
-        Gateway --> AuditEngine["6. Cryptographic Audit Engine<br/>(Forward-Walking SHA-256 Hash Chain)"]
+    subgraph Engines ["Core Processing & Compliance Engines"]
+        Intake["1. Intake & Document Gateway<br/>(PyMuPDF · Magic Sniffing · pHash · RapidOCR)"]
+        Workflow["2. Rules & Workflow Engine<br/>(Dynamic Stage Routing · Structured Reverts)"]
+        Deadline["3. Dual-Clock SLA & Escalation Ladder<br/>(7-Check Advisory-Locked Monitor Tick)"]
+        EVC["4. Expert Committee Engine<br/>(Conflict-of-Interest Filter: District & Tenure)"]
+        Obligation["5. Obligations & Document Validity<br/>(Post-Approval Undertakings & Renewal Chains)"]
+        Audit["6. Cryptographic Audit Engine<br/>(Forward-Walking SHA-256 Hash Chain)"]
     end
 
-    Core Engines --> DB[(PostgreSQL 16 Alpine)]
-    Core Engines --> Mail[(Mailpit / SMTP Relay)]
-    Core Engines --> Storage[(Encrypted File Vault)]
+    Gateway --> Intake
+    Gateway --> Workflow
+    Gateway --> Deadline
+    Gateway --> EVC
+    Gateway --> Obligation
+    Gateway --> Audit
+
+    Workflow --> DB[("PostgreSQL 16 Alpine")]
+    Audit --> DB
+    Deadline --> Mail[("Mailpit / SMTP Relay")]
+    Intake --> Storage[("Encrypted File Vault")]
 ```
 
 ### 1. Intelligent Application Intake Gateway
@@ -236,3 +244,4 @@ All accounts share the demonstration password: **`DemoPass!26`**
 ## 8. Confidentiality & Security Notice
 
 This repository contains proprietary software and verification harnesses. All sensitive environment secrets, private cryptographic keys, and database passwords have been strictly sanitized and excluded via `.gitignore`. Default configurations utilize local container networking and simulated mail relays.
+
