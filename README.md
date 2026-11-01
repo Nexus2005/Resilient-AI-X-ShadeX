@@ -196,8 +196,8 @@ The test harness evaluates 18 comprehensive synthetic attack and edge-case scena
 ### 1. Launch with Docker Compose
 ```bash
 # Clone the repository
-git clone https://github.com/Nexus2005/ShadeX-SIH2026.git
-cd ShadeX-SIH2026/aicte-control-tower
+git clone https://github.com/Nexus2005/Resilient-AI-X-ShadeX.git
+cd Resilient-AI-X-ShadeX/aicte-control-tower
 
 # Spin up all services (Database, API, Scheduler, Web, Mailpit)
 docker compose up -d --build
