@@ -1,0 +1,90 @@
+{
+    "targets": [
+        "avalanche-danger-alert",
+        "falling-rocks-alert"
+    ],
+    "layers": {
+        "Exclamation": {
+            "transform": "scale",
+            "values": [
+                1,
+                1,
+                1.1,
+                1.1,
+                1,
+                1
+            ],
+            "duration": "3s",
+            "easing": "ease-in-out"
+        },
+        "Cube": {
+            "transform": "rotate",
+            "values": [0, -360],
+            "duration": "2s",
+            "easing": "linear"
+        },
+        "Debris 1": {
+            "animations": [
+                {
+                    "property": "opacity",
+                    "values": [
+                        0,
+                        1,
+                        1,
+                        0
+                    ],
+                    "keyTimes": [
+                        0,
+                        0.2,
+                        0.8,
+                        1
+                    ],
+                    "duration": "3s",
+                    "delay": 0
+                }
+            ]
+        },
+        "Debris 2": {
+            "animations": [
+                {
+                    "property": "opacity",
+                    "values": [
+                        0,
+                        1,
+                        1,
+                        0
+                    ],
+                    "keyTimes": [
+                        0,
+                        0.2,
+                        0.8,
+                        1
+                    ],
+                    "duration": "3s",
+                    "delay": 0.3
+                }
+            ]
+        },
+        "Debris 3": {
+            "animations": [
+                {
+                    "property": "opacity",
+                    "values": [
+                        0,
+                        1,
+                        1,
+                        0
+                    ],
+                    "keyTimes": [
+                        0,
+                        0.2,
+                        0.8,
+                        1
+                    ],
+                    "duration": "3s",
+                    "delay": 0.6
+                }
+            ]
+        }
+    }
+}

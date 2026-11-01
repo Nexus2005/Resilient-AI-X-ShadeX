@@ -1,0 +1,9 @@
+{
+    "targets": [
+        "dust-day"
+    ],
+    "includes": [
+        "sun",
+        "dust"
+    ]
+}

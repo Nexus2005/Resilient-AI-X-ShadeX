@@ -1,0 +1,10 @@
+{
+    "targets": [
+        "fog-day",
+        "haze-day"
+    ],
+    "includes": [
+        "sun",
+        "fog-lines"
+    ]
+}

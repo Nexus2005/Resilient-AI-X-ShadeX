@@ -1,0 +1,9 @@
+{
+    "targets": [
+        "thermometer-alert"
+    ],
+    "includes": [
+        "alert",
+        "thermometer-value"
+    ]
+}

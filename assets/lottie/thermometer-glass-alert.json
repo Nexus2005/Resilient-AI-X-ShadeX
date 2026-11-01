@@ -1,0 +1,8 @@
+{
+    "targets": [
+        "thermometer-glass-alert"
+    ],
+    "includes": [
+        "alert"
+    ]
+}

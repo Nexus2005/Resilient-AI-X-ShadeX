@@ -1,0 +1,11 @@
+.env
+.env.local
+*.log
+data/
+apps/web/node_modules/
+apps/web/.next/
+apps/web/next-env.d.ts
+apps/api/.venv/
+apps/api/**/__pycache__/
+apps/api/.pytest_cache/
+.DS_Store

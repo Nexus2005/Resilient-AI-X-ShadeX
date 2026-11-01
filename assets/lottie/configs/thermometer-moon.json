@@ -1,0 +1,9 @@
+{
+    "targets": [
+        "thermometer-moon"
+    ],
+    "includes": [
+        "moon",
+        "thermometer-value"
+    ]
+}

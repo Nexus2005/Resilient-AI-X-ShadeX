@@ -1,0 +1,18 @@
+{
+    "targets": [
+        "hurricane-alert"
+    ],
+    "includes": [
+        "alert"
+    ],
+    "layers": {
+        "Hurricane": {
+            "transform": "rotate",
+            "from": 0,
+            "to": -360,
+            "origin": "center",
+            "duration": "2s",
+            "easing": "linear"
+        }
+    }
+}

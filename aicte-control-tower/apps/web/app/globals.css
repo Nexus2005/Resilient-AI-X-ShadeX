@@ -1,0 +1,159 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/*
+  AICTE Control Tower design tokens.
+  These are the only colours allowed in the product (see docs/04_UI_UX_SPEC.md).
+*/
+:root {
+  --brand-900: #2a1a6e;
+  --brand-700: #4727c2;
+  --brand-600: #5b35e5;
+  --brand-400: #8b6cf0;
+  --brand-200: #cbbdfa;
+  --brand-100: #e9e1ff;
+  --brand-50: #f4f0ff;
+  --ink: #1b1534;
+  --muted: #6b6585;
+  --line: #e6e0f5;
+  --surface: #ffffff;
+  --danger: #c0264b;
+
+  --background: var(--surface);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --primary: var(--brand-600);
+  --primary-foreground: var(--surface);
+  --secondary: var(--brand-50);
+  --secondary-foreground: var(--brand-900);
+  --muted-foreground: var(--muted);
+  --accent: var(--brand-100);
+  --accent-foreground: var(--brand-900);
+  --destructive: var(--danger);
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--brand-600);
+  --chart-1: var(--brand-900);
+  --chart-2: var(--brand-600);
+  --chart-3: var(--brand-400);
+  --chart-4: var(--brand-200);
+  --chart-5: var(--brand-100);
+  --radius: 0.75rem;
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--brand-600);
+  --sidebar-primary-foreground: var(--surface);
+  --sidebar-accent: var(--brand-100);
+  --sidebar-accent-foreground: var(--brand-900);
+  --sidebar-border: var(--line);
+  --sidebar-ring: var(--brand-600);
+}
+
+@theme inline {
+  --font-sans: var(--font-jakarta);
+  --font-heading: var(--font-jakarta);
+
+  --color-primary-50: var(--brand-50);
+  --color-primary-100: var(--brand-100);
+  --color-primary-200: var(--brand-200);
+  --color-primary-400: var(--brand-400);
+  --color-primary-600: var(--brand-600);
+  --color-primary-700: var(--brand-700);
+  --color-primary-900: var(--brand-900);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-danger: var(--danger);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.625rem;
+  --radius-lg: var(--radius);
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --shadow-card: 0 1px 2px rgba(42, 26, 110, 0.06), 0 8px 24px rgba(42, 26, 110, 0.06);
+}
+
+@layer components {
+  /* Soft lavender wash used behind the public hero, from the TNDP reference. */
+  .landing-wash {
+    background: radial-gradient(
+      120% 120% at 50% -10%,
+      var(--brand-100) 0%,
+      var(--brand-50) 42%,
+      var(--surface) 100%
+    );
+  }
+
+  .section-shell {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 1200px;
+    padding-inline: 24px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans;
+    font-variant-numeric: tabular-nums;
+  }
+
+  body {
+    @apply bg-background text-ink antialiased;
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-primary-900;
+    font-weight: 600;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand-600);
+    outline-offset: 2px;
+  }
+}

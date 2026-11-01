@@ -1,0 +1,9 @@
+{
+    "targets": [
+        "thermometer-sun"
+    ],
+    "includes": [
+        "sun",
+        "thermometer-value"
+    ]
+}

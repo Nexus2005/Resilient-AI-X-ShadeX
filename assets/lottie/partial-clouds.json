@@ -1,0 +1,21 @@
+{
+    "targets": [
+        "mostly-clear",
+        "partly-cloudy"
+    ],
+    "includes": [
+        "clouds"
+    ],
+    "variants": {
+        "day": ["sun"],
+        "night": ["moon"],
+        "rain": ["rain"],
+        "drizzle": ["rain"],
+        "snow": ["snow"],
+        "hail": ["hail"],
+        "sleet": ["sleet"],
+        "fog": ["fog-lines"],
+        "haze": ["fog-lines"],
+        "smoke": ["smoke"]
+    }
+}

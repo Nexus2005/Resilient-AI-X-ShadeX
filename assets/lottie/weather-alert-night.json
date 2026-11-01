@@ -1,0 +1,10 @@
+{
+    "targets": [
+        "weather-alert-night"
+    ],
+    "includes": [
+        "moon",
+        "clouds",
+        "alert"
+    ]
+}

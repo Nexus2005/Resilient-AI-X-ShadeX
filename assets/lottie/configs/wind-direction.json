@@ -1,0 +1,25 @@
+{
+    "targets": [
+        "wind-direction-e",
+        "wind-direction-n",
+        "wind-direction-ne",
+        "wind-direction-nw",
+        "wind-direction-s",
+        "wind-direction-se",
+        "wind-direction-sw",
+        "wind-direction-w"
+    ],
+    "layers": {
+        "Pointer": {
+            "transform": "rotate",
+            "values": [
+                -6,
+                6,
+                -6
+            ],
+            "origin": "64px 64px",
+            "duration": "3s",
+            "easing": "ease-in-out"
+        }
+    }
+}

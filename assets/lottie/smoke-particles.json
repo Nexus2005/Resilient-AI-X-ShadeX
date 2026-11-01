@@ -1,0 +1,8 @@
+{
+    "targets": [
+        "smoke-particles"
+    ],
+    "includes": [
+        "smoke"
+    ]
+}

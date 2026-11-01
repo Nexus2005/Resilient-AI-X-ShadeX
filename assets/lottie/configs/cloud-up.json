@@ -1,0 +1,9 @@
+{
+    "targets": [
+        "cloud-down",
+        "cloud-up"
+    ],
+    "includes": [
+        "arrows"
+    ]
+}

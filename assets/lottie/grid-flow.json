@@ -1,0 +1,9 @@
+{
+    "targets": [
+        "grid-import",
+        "grid-export"
+    ],
+    "includes": [
+        "arrows"
+    ]
+}

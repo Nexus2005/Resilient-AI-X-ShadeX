@@ -1,0 +1,10 @@
+{
+    "targets": [
+        "weather-alert-day"
+    ],
+    "includes": [
+        "sun",
+        "clouds",
+        "alert"
+    ]
+}

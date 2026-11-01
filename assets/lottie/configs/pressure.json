@@ -1,0 +1,9 @@
+{
+    "targets": [
+        "pressure-high",
+        "pressure-low"
+    ],
+    "includes": [
+        "arrows"
+    ]
+}

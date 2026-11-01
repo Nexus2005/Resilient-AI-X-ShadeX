@@ -1,0 +1,10 @@
+{
+    "targets": [
+        "fog",
+        "haze"
+    ],
+    "includes": [
+        "clouds",
+        "fog-lines"
+    ]
+}

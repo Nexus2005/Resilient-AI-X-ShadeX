@@ -1,0 +1,9 @@
+{
+    "targets": [
+        "wind-alert"
+    ],
+    "includes": [
+        "wind-lines",
+        "alert"
+    ]
+}

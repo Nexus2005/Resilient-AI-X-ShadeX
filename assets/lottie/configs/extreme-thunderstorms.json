@@ -1,0 +1,22 @@
+{
+    "targets": [
+        "extreme-thunderstorms",
+        "extreme-thunderstorms-mostly-clear"
+    ],
+    "includes": [
+        "clouds",
+        "lightning"
+    ],
+    "variants": {
+        "day": ["sun"],
+        "night": ["moon"],
+        "rain": ["rain"],
+        "drizzle": ["rain"],
+        "snow": ["snow"],
+        "hail": ["hail"],
+        "sleet": ["sleet"],
+        "fog": ["fog-lines"],
+        "haze": ["fog-lines"],
+        "smoke": ["smoke"]
+    }
+}

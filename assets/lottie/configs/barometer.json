@@ -1,0 +1,23 @@
+{
+    "targets": [
+        "barometer",
+        "barometer-extreme",
+        "barometer-high",
+        "barometer-low",
+        "barometer-moderate",
+        "barometer-very-high"
+    ],
+    "layers": {
+        "Pointer": {
+            "transform": "rotate",
+            "values": [
+                -6,
+                6,
+                -6
+            ],
+            "origin": "64px 64px",
+            "duration": "3s",
+            "easing": "ease-in-out"
+        }
+    }
+}

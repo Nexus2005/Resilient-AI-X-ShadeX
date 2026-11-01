@@ -1,0 +1,88 @@
+name: aicte-control-tower
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: aicte
+      POSTGRES_PASSWORD: aicte
+      POSTGRES_DB: aicte
+    # No host port published: the API and scheduler reach the database on the
+    # compose network, and port 5432 is often taken by a local PostgreSQL.
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aicte -d aicte"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+
+  api:
+    build: ./apps/api
+    environment:
+      DATABASE_URL: postgresql+psycopg://aicte:aicte@db:5432/aicte
+      JWT_SECRET: ${JWT_SECRET:-dev-only-secret-change-before-deploy-32b}
+      WEB_ORIGIN: ${WEB_ORIGIN:-http://localhost:3000}
+      DEMO_MODE: ${DEMO_MODE:-true}
+      SMTP_HOST: mailpit
+      SMTP_PORT: "1025"
+      SMTP_FROM: ${SMTP_FROM:-no-reply@control-tower.local}
+      SMS_PROVIDER: simulated
+      LLM_PROVIDER: ${LLM_PROVIDER:-none}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-}
+      STORAGE_DIR: /data/files
+    ports:
+      - "8000:8000"
+    volumes:
+      - files:/data/files
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/api/v1/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+
+  scheduler:
+    build: ./apps/api
+    command: ["python", "-m", "app.scheduler.tick"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://aicte:aicte@db:5432/aicte
+      JWT_SECRET: ${JWT_SECRET:-dev-only-secret-change-before-deploy-32b}
+      WEB_ORIGIN: ${WEB_ORIGIN:-http://localhost:3000}
+      DEMO_MODE: ${DEMO_MODE:-true}
+      SMTP_HOST: mailpit
+      SMTP_PORT: "1025"
+      SMTP_FROM: ${SMTP_FROM:-no-reply@control-tower.local}
+      SMS_PROVIDER: simulated
+      STORAGE_DIR: /data/files
+    volumes:
+      - files:/data/files
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    build:
+      context: ./apps/web
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000/api/v1}
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000/api/v1}
+      API_INTERNAL_URL: http://api:8000/api/v1
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+volumes:
+  db-data:
+  files:

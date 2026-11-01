@@ -1,0 +1,14 @@
+{
+    "targets": [
+        "soil-temperature",
+        "thermometer",
+        "thermometer-celsius",
+        "thermometer-fahrenheit",
+        "thermometer-mercury",
+        "thermometer-mercury-cold",
+        "thermometer-snow"
+    ],
+    "includes": [
+        "thermometer-value"
+    ]
+}

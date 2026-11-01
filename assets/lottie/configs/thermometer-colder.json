@@ -1,0 +1,10 @@
+{
+    "targets": [
+        "thermometer-colder",
+        "thermometer-warmer"
+    ],
+    "includes": [
+        "thermometer-value",
+        "arrows"
+    ]
+}

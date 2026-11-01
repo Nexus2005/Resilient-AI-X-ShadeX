@@ -1,0 +1,90 @@
+# ==============================================================================
+# ShadeX - Root .gitignore
+# ==============================================================================
+
+# --- Secrets & Sensitive Credentials (NEVER COMMIT) ---
+KEYS.txt
+*.key
+*.pem
+*.pfx
+*.pkcs12
+.env
+.env.*
+!.env.example
+!.env.template
+secrets.json
+credentials.json
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# --- Node / Next.js / Frontend ---
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+test-results/
+playwright-report/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.turbo/
+
+# --- Storage & Runtime Artifacts ---
+/data/
+/var/
+backend/var/
+apps/api/data/
+apps/api/var/
+*.log
+
+# --- Local Reference & Heavy Raw Binaries ---
+/2025031399.pdf
+/docs/sources/*.pdf
+
+# --- Operating System & Editor Artifacts ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

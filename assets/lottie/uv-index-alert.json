@@ -1,0 +1,9 @@
+{
+    "targets": [
+        "uv-index-alert"
+    ],
+    "includes": [
+        "sun",
+        "alert"
+    ]
+}
